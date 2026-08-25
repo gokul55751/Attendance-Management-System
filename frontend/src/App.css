@@ -1,0 +1,13 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1a202c;
+}
