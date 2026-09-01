@@ -60,6 +60,9 @@ function App() {
                   type="text"
                   placeholder="Gokul"
                   autoComplete="given-name"
+                  required
+                  minLength={2}
+                  maxLength={50}
                 />
               </div>
 
@@ -71,6 +74,9 @@ function App() {
                   type="text"
                   placeholder="Kumar"
                   autoComplete="family-name"
+                  required
+                  minLength={2}
+                  maxLength={50}
                 />
               </div>
             </div>
@@ -83,6 +89,8 @@ function App() {
                 type="email"
                 placeholder="you@college.edu"
                 autoComplete="email"
+                required
+                maxLength={254}
               />
             </div>
 
@@ -94,11 +102,14 @@ function App() {
                 type="password"
                 placeholder="At least 8 characters"
                 autoComplete="new-password"
+                required
+                minLength={8}
+                maxLength={128}
               />
             </div>
 
             <label className="terms">
-              <input type="checkbox" name="terms" />
+              <input type="checkbox" name="terms" required />
               <span>
                 I agree to the <a href="#terms">Terms of Service</a> and{' '}
                 <a href="#privacy">Privacy Policy</a>.

@@ -7,6 +7,7 @@
   --blue: #2563eb;
   --blue-dark: #1746b5;
   --blue-soft: #dbeafe;
+  --error: #c92a2a;
 }
 
 .signup-page {
@@ -304,6 +305,15 @@ footer {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
 }
 
+.field input:user-invalid {
+  border-color: var(--error);
+  box-shadow: 0 0 0 4px rgba(201, 42, 42, 0.1);
+}
+
+.field input:user-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(201, 42, 42, 0.16);
+}
+
 .terms {
   display: flex;
   align-items: flex-start;
@@ -320,6 +330,11 @@ footer {
   flex: 0 0 auto;
   margin-top: 1px;
   accent-color: var(--ink);
+}
+
+.terms input:user-invalid {
+  outline: 2px solid var(--error);
+  outline-offset: 2px;
 }
 
 .signup-form button {
