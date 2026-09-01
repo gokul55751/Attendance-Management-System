@@ -197,6 +197,10 @@ footer {
   background: var(--blue);
 }
 
+.login-progress span {
+  width: 94%;
+}
+
 .preview-stats {
   justify-content: flex-start;
   gap: 22px;
@@ -335,6 +339,18 @@ footer {
 .terms input:user-invalid {
   outline: 2px solid var(--error);
   outline-offset: 2px;
+}
+
+.login-card {
+  max-width: 510px;
+}
+
+.login-remember {
+  width: fit-content;
+}
+
+.login-create-account {
+  margin-top: 24px;
 }
 
 .signup-form button {

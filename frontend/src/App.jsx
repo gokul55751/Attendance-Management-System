@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react';
 import './App.css';
+import LoginPage from './LoginPage';
 
 function App() {
+  const [route, setRoute] = useState(() => window.location.hash);
+
+  useEffect(() => {
+    const handleRouteChange = () => setRoute(window.location.hash);
+
+    window.addEventListener('hashchange', handleRouteChange);
+    return () => window.removeEventListener('hashchange', handleRouteChange);
+  }, []);
+
+  if (route === '#sign-in') {
+    return <LoginPage />;
+  }
+
   return (
     <div className="signup-page">
       <header className="site-header">
-        <a className="brand" href="#" aria-label="Present home">
+        <a className="brand" href="#create-account" aria-label="Present home">
           <span className="brand-mark" aria-hidden="true">
             P
           </span>
