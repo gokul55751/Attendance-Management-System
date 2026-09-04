@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import DashboardPage from './DashboardPage';
 import LoginPage from './LoginPage';
 
 function App() {
   const [route, setRoute] = useState(() => window.location.hash);
+  const [displayName, setDisplayName] = useState('Gokul');
 
   useEffect(() => {
     const handleRouteChange = () => setRoute(window.location.hash);
@@ -12,8 +14,28 @@ function App() {
     return () => window.removeEventListener('hashchange', handleRouteChange);
   }, []);
 
+  const handleAuthSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const firstName = formData.get('firstName')?.trim();
+    const emailName = formData.get('email')?.split('@')[0].replace(/[._-]+/g, ' ').trim();
+    const name = firstName || emailName || 'Gokul';
+
+    setDisplayName(name.charAt(0).toUpperCase() + name.slice(1));
+    window.location.hash = 'dashboard';
+  };
+
+  const handleSignOut = () => {
+    window.location.hash = 'sign-in';
+  };
+
+  if (route === '#dashboard') {
+    return <DashboardPage displayName={displayName} onSignOut={handleSignOut} />;
+  }
+
   if (route === '#sign-in') {
-    return <LoginPage />;
+    return <LoginPage onSubmit={handleAuthSubmit} />;
   }
 
   return (
@@ -65,7 +87,7 @@ function App() {
             </div>
           </div>
 
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={handleAuthSubmit}>
             <div className="name-row">
               <div className="field">
                 <label htmlFor="first-name">First name</label>

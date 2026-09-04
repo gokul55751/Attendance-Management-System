@@ -1,4 +1,4 @@
-function LoginPage() {
+function LoginPage({ onSubmit }) {
   return (
     <div className="signup-page">
       <header className="site-header">
@@ -48,7 +48,7 @@ function LoginPage() {
             </div>
           </div>
 
-          <form className="signup-form">
+          <form className="signup-form" onSubmit={onSubmit}>
             <div className="field">
               <label htmlFor="login-email">Email address</label>
               <input
